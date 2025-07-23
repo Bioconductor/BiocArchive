@@ -37,7 +37,7 @@ install the appropriate packages.
 
 ``` r
 lastBuilt(version = "3.14")
-#>         3.14 
+#>         3.14
 #> "2022-04-13"
 ```
 
@@ -66,14 +66,11 @@ will work as normal within a legacy container or local installation.
 
 ``` r
 install("DESeq2", version = "3.14", dry.run = TRUE)
-#>                                              CRAN 
+#>                                              CRAN
 #> "https://packagemanager.posit.co/cran/2022-04-13"
-```
-
-``` r
 
 install("MultiAssayExperiment", version = "3.14", dry.run = TRUE)
-#>                                              CRAN 
+#>                                              CRAN
 #> "https://packagemanager.posit.co/cran/2022-04-13"
 ```
 
@@ -93,16 +90,13 @@ the last build date of the Bioconductor version.
 
 ``` r
 install("DESeq2", version = "3.14", dry.run = TRUE, snapshot = "P3M")
-#>                                              CRAN 
+#>                                              CRAN
 #> "https://packagemanager.posit.co/cran/2022-04-13"
-```
-
-``` r
 
 install(
     "MultiAssayExperiment", version = "3.14", dry.run = TRUE, snapshot = "P3M"
 )
-#>                                              CRAN 
+#>                                              CRAN
 #> "https://packagemanager.posit.co/cran/2022-04-13"
 ```
 
@@ -119,9 +113,9 @@ A CRAN package from the archive can be installed (from source) using
 ``` r
 CRANinstall("dplyr", "3.14", dry.run = TRUE)
 #> https://cran.r-project.org/src/contrib/Archive/dplyr/dplyr_1.0.8.tar.gz
-#> 
+#>
 #> The downloaded source packages are in
-#>         '/tmp/RtmpUQWJ6y/downloaded_packages'
+#>         '/tmp/Rtmp9tHSf3/downloaded_packages'
 ```
 
 The function will attempt to satisfy all dependencies from the CRAN
@@ -156,36 +150,42 @@ sought.
 
 ``` r
 sessionInfo()
-#> R version 4.4.0 Patched (2024-04-29 r86495)
+#> R version 4.5.1 Patched (2025-06-14 r88325)
 #> Platform: x86_64-pc-linux-gnu
-#> Running under: Ubuntu 22.04.4 LTS
-#> 
+#> Running under: Ubuntu 24.04.2 LTS
+#>
 #> Matrix products: default
-#> BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
-#> LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
-#> 
+#> BLAS/LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
+#>
 #> locale:
-#>  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
-#>  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-#>  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-#> [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-#> 
+#>  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+#>  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+#>  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+#>  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+#>  [9] LC_ADDRESS=C               LC_TELEPHONE=C
+#> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+#>
 #> time zone: America/New_York
 #> tzcode source: system (glibc)
-#> 
+#>
 #> attached base packages:
-#> [1] stats     graphics  grDevices utils     datasets  methods   base     
-#> 
+#> [1] stats     graphics  grDevices utils     datasets  methods   base
+#>
 #> other attached packages:
-#> [1] tinytest_1.4.1      BiocArchive_0.99.19 colorout_1.3-0.1   
-#> 
+#> [1] BiocArchive_0.99.19 nvimcom_0.9-167     colorout_1.3-2
+#>
 #> loaded via a namespace (and not attached):
-#>  [1] vctrs_0.6.5         httr_1.4.7          cli_3.6.2           knitr_1.46          rlang_1.1.3        
-#>  [6] xfun_0.44           pkgload_1.3.4       generics_0.1.3      glue_1.7.0          htmltools_0.5.8.1  
-#> [11] fansi_1.0.6         rmarkdown_2.27      tibble_3.2.1        evaluate_0.23       fastmap_1.2.0      
-#> [16] yaml_2.3.8          lifecycle_1.0.4     memoise_2.0.1       BiocManager_1.30.23 compiler_4.4.0     
-#> [21] rvest_1.0.4         codetools_0.2-20    pkgconfig_2.0.3     timechange_0.3.0    rstudioapi_0.16.0  
-#> [26] digest_0.6.35       R6_2.5.1            utf8_1.2.4          pillar_1.9.0        curl_5.2.1         
-#> [31] parallel_4.4.0      magrittr_2.0.3      tools_4.4.0         lubridate_1.9.3     xml2_1.3.6         
-#> [36] cachem_1.1.0
+#>  [1] vctrs_0.6.5       httr_1.4.7        cli_3.6.5
+#>  [4] knitr_1.50        rlang_1.1.6       xfun_0.52
+#>  [7] processx_3.8.6    generics_0.1.4    promises_1.3.3
+#> [10] jsonlite_2.0.0    glue_1.8.0        htmltools_0.5.8.1
+#> [13] ps_1.9.1          chromote_0.5.1    rmarkdown_2.29
+#> [16] tibble_3.3.0      evaluate_1.0.4    fastmap_1.2.0
+#> [19] yaml_2.3.10       lifecycle_1.0.4   memoise_2.0.1
+#> [22] compiler_4.5.1    rvest_1.0.4       codetools_0.2-20
+#> [25] pkgconfig_2.0.3   timechange_0.3.0  websocket_1.4.4
+#> [28] Rcpp_1.1.0        later_1.4.2       digest_0.6.37
+#> [31] R6_2.6.1          pillar_1.11.0     curl_6.4.0
+#> [34] magrittr_2.0.3    tools_4.5.1       lubridate_1.9.4
+#> [37] cachem_1.1.0      xml2_1.3.8
 ```
