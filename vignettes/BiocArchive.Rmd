@@ -29,7 +29,7 @@ R version installation and install the package via GitHub or via source.
 
 # Installation
 
-Currently, it is available via GitHub. 
+Currently, it is available via GitHub.
 
 ```{r,eval=FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -57,7 +57,7 @@ lastBuilt(version = "3.14")
 # Archived installations
 
 To install Bioconductor packages from previous releases, we strongly recommend
-using Bioconductor Docker containers, where possible. Such containers will have 
+using Bioconductor Docker containers, where possible. Such containers will have
 `BiocManager` installed. `BiocArchive` allows versioned installations of
 [CRAN](https://cran.r-project.org/) packages from either the Posit Public
 Package Manager (`P3M`) or the CRAN
@@ -65,19 +65,19 @@ Package Manager (`P3M`) or the CRAN
 
 ## Docker installation
 
-To download the Docker container, one can run the docker command: 
+To download the Docker container, one can run the docker command:
 
 ```
 docker pull bioconductor/bioconductor_docker:RELEASE_3_14
 ```
 
-For more information, see the Docker for Bioconductor page: 
+For more information, see the Docker for Bioconductor page:
 https://www.bioconductor.org/help/docker/
 
 ## Bioconductor installations
 
 Installations of Bioconductor packages are handled by `BiocManager` and will
-work as normal within a legacy container or local installation. 
+work as normal within a legacy container or local installation.
 
 ```{r}
 install("DESeq2", version = "3.14", dry.run = TRUE)
