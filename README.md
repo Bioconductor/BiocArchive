@@ -1,5 +1,6 @@
+# BiocArchive <img src="inst/resources/BiocArchive.png" align="right" width="120" />
 
-# BiocArchive
+# Introduction
 
 `BiocArchive` is a package dedicated to preserving reproducibility with
 older Bioconductor versions. It works for older Bioconductor releases,

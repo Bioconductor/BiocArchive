@@ -1,5 +1,5 @@
 ---
-title: "Install archived Bioconductor packages from previous releases"
+title: "BiocArchive: Installation of Legacy Bioconductor Releases"
 author: "Marcel Ramos"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output:
@@ -16,7 +16,7 @@ vignette: >
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-# BiocArchive
+# Introduction
 
 `BiocArchive` is a package dedicated to preserving reproducibility with older
 Bioconductor versions. It works for older Bioconductor releases, for example

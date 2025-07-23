@@ -4,6 +4,9 @@ knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding, output_dir = "../../") })
 ---
 
+# BiocArchive <img src="inst/resources/BiocArchive.png" align="right" width="120" />
+
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
