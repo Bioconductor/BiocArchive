@@ -147,7 +147,7 @@ base_installed <- c(
 )
 
 .sys_install_pkg <- function(pkg_file) {
-    cmd0 <- system2("which", "R", stdout = TRUE)
+    cmd0 <- file.path(R.home("bin"), "R")
     suppressWarnings({
         system2(
             command = cmd0,
