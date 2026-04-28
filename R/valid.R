@@ -40,15 +40,18 @@ valid <- function(
     )
     on.exit(options(old_opt))
 
-    use_binaries <- Sys.getenv(
-        "BIOCONDUCTOR_USE_CONTAINER_REPOSITORY", names = TRUE, unset = FALSE
+    old_env <- Sys.getenv("BIOCONDUCTOR_USE_CONTAINER_REPOSITORY", unset = NA)
+    Sys.setenv(BIOCONDUCTOR_USE_CONTAINER_REPOSITORY = FALSE)
+    on.exit(
+        {
+            if (is.na(old_env))
+                Sys.unsetenv("BIOCONDUCTOR_USE_CONTAINER_REPOSITORY")
+            else
+                Sys.setenv(BIOCONDUCTOR_USE_CONTAINER_REPOSITORY = old_env)
+        },
+        add = TRUE
     )
-    if (!identical(use_binaries, "FALSE")) {
-        Sys.setenv(
-            BIOCONDUCTOR_USE_CONTAINER_REPOSITORY = FALSE
-        )
-        on.exit(do.call(Sys.setenv, as.list(use_binaries)), add = TRUE)
-    }
+
     BiocManager::valid(
         pkgs = pkgs, lib.loc = lib.loc, priority = priority, type = type,
         filters = filters, ...,
