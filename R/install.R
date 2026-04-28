@@ -117,7 +117,7 @@ CRANinstall <- function(
     pkgs, version = BiocManager::version(), dry.run = FALSE, ...,
     last_built = lastBuilt(version = version)
 ) {
-    dl_pkgs_dir <- file.path(tempdir(), "downloaded_packages")
+    dl_pkgs_dir <- tempfile(pattern = "downloaded_packages_")
     if (!dir.exists(dl_pkgs_dir))
         dir.create(dl_pkgs_dir)
     addArgs <- list(
