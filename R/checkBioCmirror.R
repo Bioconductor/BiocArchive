@@ -1,6 +1,6 @@
 #' Check whether a Bioconductor mirror is configured
 #'
-#' The function checks the `PACKAGES` file with `RCurl::url.exists`.
+#' The function checks the `PACKAGES` file with `httr::HEAD`.
 #'
 #' @param mirror `character(1)` The Bioconductor mirror to be tested resolves
 #'   from `getOption("BioC_mirror")`. If one is not selected,
@@ -45,7 +45,8 @@ checkBioCmirror <- function(
     bioc_repo <-
         paste(mirror, "packages", as.character(version), path, sep = "/")
     url <- paste0(utils::contrib.url(bioc_repo, type = type), "/PACKAGES")
-    url_exists <- RCurl::url.exists(url)
+    response <- httr::HEAD(url, httr::config(followLocation = 0L))
+    url_exists <- !httr::http_error(response)
     names(url_exists) <- url
     url_exists
 }

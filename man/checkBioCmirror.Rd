@@ -32,7 +32,7 @@ A logical value indicating availability of the mirror indicated in
 the name.
 }
 \description{
-The function checks the \code{PACKAGES} file with \code{RCurl::url.exists}.
+The function checks the \code{PACKAGES} file with \code{httr::HEAD}.
 }
 \examples{
 
