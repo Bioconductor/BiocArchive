@@ -30,5 +30,5 @@ VignetteBuilder: knitr
 License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
 Date: 2026-04-28
+Config/roxygen2/version: 8.0.0
