@@ -50,18 +50,20 @@
 }
 
 #' @importFrom methods is
-.resolve_archive <- function(pkg, last_built_date) {
-    repo_link <- paste(.CRAN_ARCHIVE_REPOSITORY, pkg, sep = "/")
-    table <-
-        .get_cran_table(repo_link, header = TRUE)[, c("Name", "Last modified")]
-    table <- table[stats::complete.cases(table), ]
-    table <- table[order(table[['Last modified']]), ]
-    latest <- lubridate::ymd(last_built_date) >=
-        lubridate::ymd_hm(table$`Last modified`)
-    indx <- max(which(latest))
-    arch_candidate <- unlist(table[indx, "Name"])
-    .get_best_link(pkg, last_built_date, arch_candidate, latest)
-}
+.resolve_archive <- memoise::memoise(
+    function(pkg, last_built_date) {
+        repo_link <- paste(.CRAN_ARCHIVE_REPOSITORY, pkg, sep = "/")
+        table <- .get_cran_table(repo_link, header = TRUE)
+        table <- table[, c("Name", "Last modified")]
+        table <- table[stats::complete.cases(table), ]
+        table <- table[order(table[['Last modified']]), ]
+        latest <- lubridate::ymd(last_built_date) >=
+            lubridate::ymd_hm(table$`Last modified`)
+        indx <- max(which(latest))
+        arch_candidate <- unlist(table[indx, "Name"])
+        .get_best_link(pkg, last_built_date, arch_candidate, latest)
+    }
+)
 
 .replace_repo <-
     function(repos = getOption("repos"), version, last_date, snapshot)
