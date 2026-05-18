@@ -217,7 +217,12 @@ base_installed <- c(
         tryCatch({
             utils::install.packages(pkg_file, repos = NULL, type = "source")
         }, error = function(e) {
-            conditionMessage(e)
+            warning(
+                "Installation of package '", pkg, "' failed with error:\n  ",
+                conditionMessage(e)
+            )
         })
-    }, warning = .install_file_msg(pkg_file))
+    }, warning = function(w) {
+        .install_file_msg(pkg_file)
+    })
 }
