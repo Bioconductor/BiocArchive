@@ -1,6 +1,8 @@
 # setup
 repo_short_names <- BiocArchive:::repo_short_names
-.match_get_short_name <- BiocArchive:::.match_get_short_name
+.match_get_short_name <- function(pkgType, colName) {
+    repo_short_names[match(pkgType, repo_short_names[["repository"]]), colName]
+}
 
 bioc_url <- "https://bioconductor.org"
 bioc_mirror <- c(`0-Bioconductor (World-wide) [https]` = bioc_url)

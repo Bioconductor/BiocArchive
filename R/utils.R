@@ -100,10 +100,6 @@ repo_short_names <- data.frame(
         "BioCann", "BioCbooks")
 )
 
-.match_get_short_name <- function(pkgType, colName) {
-    repo_short_names[match(pkgType, repo_short_names[["repository"]]), colName]
-}
-
 .msg <- function(
         fmt, ..., width = getOption("width"), indent = 0, exdent = 2, wrap. = TRUE
 ) {
