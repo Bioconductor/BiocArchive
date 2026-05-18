@@ -50,6 +50,7 @@
 }
 
 #' @importFrom methods is
+#' @importFrom memoise memoise
 .resolve_archive <- memoise::memoise(
     function(pkg, last_built_date) {
         repo_link <- paste(.CRAN_ARCHIVE_REPOSITORY, pkg, sep = "/")
