@@ -121,24 +121,3 @@ repo_short_names <- data.frame(
 .stop <- function(..., call. = FALSE) {
     stop(.msg(...), call. = call.)
 }
-
-.replaceSlots <- function(object, ..., check = TRUE) {
-    stopifnot(
-        "'check' must be TRUE or FALSE" =
-            is.logical(check) && length(check) == 1L && !is.na(check)
-    )
-    object <- .unsafe_replaceSlots(object, ...)
-    if (check)
-        methods::validObject(object)
-    object
-}
-
-.unsafe_replaceSlots <- function(object, ...) {
-    slots <- list(...)
-    slot_names <- names(slots)
-    for (i in seq_along(slots)) {
-        slot_name <- slot_names[[i]]
-        methods::slot(object, slot_name, check = FALSE) <- slots[[i]]
-    }
-    object
-}
